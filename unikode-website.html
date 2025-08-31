@@ -1,0 +1,1611 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Unikode OS: The Intelligence Layer Your Enterprise Has Been Missing</title>
+    <style>
+        /* Enhanced CSS Variables with Premium Feel */
+        :root {
+            /* Premium Color Palette */
+            --primary: #1a73e8;
+            --primary-dark: #1557b0;
+            --primary-light: #4285f4;
+            --primary-glow: rgba(26, 115, 232, 0.2);
+            
+            --secondary: #00c853;
+            --secondary-dark: #00a843;
+            --secondary-light: #00e676;
+            
+            --accent: #ff6d00;
+            --accent-light: #ff9100;
+            
+            --success: #00c853;
+            --warning: #ffab00;
+            --danger: #d50000;
+            --info: #00b8d4;
+            
+            /* Sophisticated Grays */
+            --text-primary: #202124;
+            --text-secondary: #5f6368;
+            --text-muted: #9aa0a6;
+            --text-inverse: #ffffff;
+            
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-tertiary: #f1f3f4;
+            --bg-elevated: #ffffff;
+            --bg-dark: #202124;
+            
+            --border: #dadce0;
+            --border-light: #e8eaed;
+            
+            /* Premium Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+            --shadow-md: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+            --shadow-lg: 0 2px 6px 2px rgba(60,64,67,0.3), 0 10px 20px 6px rgba(60,64,67,0.15);
+            --shadow-xl: 0 4px 12px 4px rgba(60,64,67,0.3), 0 20px 40px 12px rgba(60,64,67,0.15);
+            
+            /* Spacing & Layout */
+            --space-xs: 0.5rem;
+            --space-sm: 0.75rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            
+            /* Typography Scale */
+            --text-xs: clamp(0.75rem, 1.5vw, 0.875rem);
+            --text-sm: clamp(0.875rem, 2vw, 1rem);
+            --text-base: clamp(1rem, 2.5vw, 1.125rem);
+            --text-lg: clamp(1.125rem, 3vw, 1.25rem);
+            --text-xl: clamp(1.25rem, 3.5vw, 1.5rem);
+            --text-2xl: clamp(1.5rem, 4vw, 2rem);
+            --text-3xl: clamp(2rem, 5vw, 2.5rem);
+            --text-4xl: clamp(2.5rem, 6vw, 3.5rem);
+            --text-5xl: clamp(3rem, 7vw, 4rem);
+            
+            /* Animations */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Borders */
+            --radius-sm: 0.5rem;
+            --radius-md: 0.75rem;
+            --radius-lg: 1rem;
+            --radius-xl: 1.5rem;
+            --radius-2xl: 2rem;
+            --radius-full: 9999px;
+        }
+
+        /* Dark Theme */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-primary: #e8eaed;
+                --text-secondary: #9aa0a6;
+                --text-muted: #5f6368;
+                
+                --bg-primary: #202124;
+                --bg-secondary: #292a2d;
+                --bg-tertiary: #35363a;
+                --bg-elevated: #292a2d;
+                
+                --border: #5f6368;
+                --border-light: #35363a;
+                
+                --primary-glow: rgba(66, 133, 244, 0.3);
+            }
+        }
+
+        /* Reset & Base */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Skip Links */
+        .skip-links {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: var(--primary);
+            color: var(--text-inverse);
+            padding: var(--space-sm) var(--space-md);
+            text-decoration: none;
+            z-index: 10000;
+            border-radius: var(--radius-md);
+        }
+
+        .skip-links:focus {
+            top: var(--space-sm);
+            left: var(--space-sm);
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            transition: var(--transition-base);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .navbar {
+                background: rgba(32, 33, 36, 0.95);
+            }
+        }
+
+        .navbar-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-md) var(--space-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-size: var(--text-xl);
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: var(--space-xl);
+            list-style: none;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-menu {
+                display: none;
+            }
+        }
+
+        .navbar-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition-fast);
+            position: relative;
+        }
+
+        .navbar-link:hover {
+            color: var(--primary);
+        }
+
+        .navbar-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: transform var(--transition-base);
+        }
+
+        .navbar-link:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            padding-top: 80px;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+        }
+
+        .hero-gradient {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: radial-gradient(circle at center, var(--primary-glow) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(var(--border-light) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border-light) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-2xl);
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            background: var(--success);
+            color: white;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            margin-bottom: var(--space-lg);
+            animation: fadeInDown 0.6s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-size: var(--text-5xl);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--space-lg);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: var(--text-xl);
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto var(--space-2xl);
+            line-height: 1.6;
+            animation: fadeInUp 0.6s ease-out 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.6s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: var(--space-md) var(--space-xl);
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all var(--transition-base);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            cursor: pointer;
+            border: none;
+            font-size: var(--text-base);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: var(--space-3xl) var(--space-lg);
+            position: relative;
+        }
+
+        .section-alt {
+            background: var(--bg-secondary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--primary-glow);
+            color: var(--primary);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+        }
+
+        .section-title {
+            font-size: var(--text-4xl);
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            font-size: var(--text-lg);
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Architecture Visualization */
+        .architecture-visual {
+            background: var(--bg-elevated);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            box-shadow: var(--shadow-lg);
+            margin: var(--space-2xl) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .architecture-layers {
+            display: grid;
+            gap: var(--space-lg);
+        }
+
+        .architecture-layer {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            border: 2px solid var(--border);
+            transition: all var(--transition-base);
+            position: relative;
+        }
+
+        .architecture-layer:hover {
+            transform: translateX(8px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .layer-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+
+        .layer-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .layer-title {
+            font-size: var(--text-xl);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .layer-percentage {
+            margin-left: auto;
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .layer-description {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        .layer-components {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+        }
+
+        .component-chip {
+            background: var(--bg-tertiary);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-md);
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-light);
+        }
+
+        /* Evolution Diagram */
+        .evolution-container {
+            background: var(--bg-elevated);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            box-shadow: var(--shadow-lg);
+            margin: var(--space-2xl) 0;
+        }
+
+        .evolution-timeline {
+            position: relative;
+            padding: var(--space-xl) 0;
+        }
+
+        .evolution-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: translateY(-50%);
+        }
+
+        .evolution-stages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-lg);
+            position: relative;
+        }
+
+        .evolution-stage {
+            text-align: center;
+            position: relative;
+        }
+
+        .stage-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--space-md);
+            background: var(--bg-primary);
+            border: 4px solid var(--primary);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stage-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .stage-description {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+        }
+
+        /* Capability Cards */
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin: var(--space-2xl) 0;
+        }
+
+        .capability-card {
+            background: var(--bg-elevated);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .capability-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform var(--transition-base);
+        }
+
+        .capability-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .capability-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .capability-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-glow);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: var(--space-md);
+            color: var(--primary);
+        }
+
+        .capability-title {
+            font-size: var(--text-xl);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .capability-description {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        .capability-metrics {
+            display: flex;
+            gap: var(--space-md);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--border-light);
+        }
+
+        .metric-item {
+            flex: 1;
+        }
+
+        .metric-value {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .metric-label {
+            font-size: var(--text-xs);
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Value Proposition */
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+            margin: var(--space-2xl) 0;
+        }
+
+        .value-prop {
+            text-align: center;
+            padding: var(--space-lg);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--space-md);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 36px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .value-title {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .value-description {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            background: var(--bg-elevated);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            margin: var(--space-2xl) 0;
+        }
+
+        .comparison-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            background: var(--bg-tertiary);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .comparison-header > div {
+            padding: var(--space-lg);
+            border-right: 1px solid var(--border-light);
+        }
+
+        .comparison-header > div:last-child {
+            border-right: none;
+        }
+
+        .traditional-header {
+            background: rgba(213, 0, 0, 0.1);
+            color: var(--danger);
+        }
+
+        .unikode-header {
+            background: rgba(0, 200, 83, 0.1);
+            color: var(--success);
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .comparison-row:last-child {
+            border-bottom: none;
+        }
+
+        .comparison-row > div {
+            padding: var(--space-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .comparison-feature {
+            font-weight: 500;
+            color: var(--text-primary);
+            justify-content: flex-start;
+            padding-left: var(--space-xl);
+        }
+
+        .comparison-no {
+            color: var(--danger);
+            font-size: 24px;
+        }
+
+        .comparison-yes {
+            color: var(--success);
+            font-size: 24px;
+        }
+
+        /* ROI Calculator */
+        .roi-calculator {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            color: white;
+            margin: var(--space-2xl) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .roi-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .roi-title {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+            text-align: center;
+        }
+
+        .roi-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-xl);
+            margin: var(--space-xl) 0;
+        }
+
+        .roi-metric {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .roi-value {
+            font-size: var(--text-4xl);
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+        }
+
+        .roi-label {
+            font-size: var(--text-sm);
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--bg-dark);
+            color: white;
+            padding: var(--space-3xl) var(--space-lg);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            opacity: 0.1;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: var(--text-4xl);
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+        }
+
+        .cta-description {
+            font-size: var(--text-xl);
+            margin-bottom: var(--space-2xl);
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-tertiary);
+            padding: var(--space-2xl) var(--space-lg);
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: var(--text-3xl);
+            }
+            
+            .section {
+                padding: var(--space-2xl) var(--space-md);
+            }
+            
+            .comparison-header,
+            .comparison-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-header > div,
+            .comparison-row > div {
+                border-right: none;
+                border-bottom: 1px solid var(--border-light);
+            }
+            
+            .architecture-layer {
+                padding: var(--space-md);
+            }
+            
+            .layer-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .layer-percentage {
+                margin-left: 0;
+                margin-top: var(--space-sm);
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .slide-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideIn 0.6s ease-out forwards;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .navbar, .footer, .cta-section {
+                display: none;
+            }
+            
+            body {
+                font-size: 12pt;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Links -->
+    <a href="#main-content" class="skip-links">Skip to main content</a>
+    <a href="#navigation" class="skip-links">Skip to navigation</a>
+    
+    <!-- Navigation -->
+    <nav class="navbar" id="navigation">
+        <div class="navbar-content">
+            <a href="#" class="navbar-brand">
+                <span>🚀</span>
+                <span>Unikode OS</span>
+            </a>
+            <ul class="navbar-menu">
+                <li><a href="#architecture" class="navbar-link">Architecture</a></li>
+                <li><a href="#capabilities" class="navbar-link">Capabilities</a></li>
+                <li><a href="#value" class="navbar-link">Value</a></li>
+                <li><a href="#comparison" class="navbar-link">Compare</a></li>
+                <li><a href="#roi" class="navbar-link">ROI</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="main-content">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+            <div class="hero-grid"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>⚡</span>
+                <span>Beyond AI • Beyond Automation • Beyond Imagination</span>
+            </div>
+            <h1 class="hero-title">
+                The Intelligence Layer<br>
+                Your Enterprise Has Been Missing
+            </h1>
+            <p class="hero-subtitle">
+                Not just another AI tool. Unikode OS is a self-evolving operating system that transforms 
+                your entire business into an intelligent, self-improving organism. It's the difference between 
+                using electricity and becoming electric.
+            </p>
+            <div class="hero-buttons">
+                <a href="#architecture" class="btn btn-primary">
+                    Discover the Architecture
+                    <span>→</span>
+                </a>
+                <a href="#roi" class="btn btn-secondary">
+                    Calculate Your ROI
+                    <span>📊</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Architecture Section -->
+    <section class="section section-alt" id="architecture">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">The Technology</span>
+                <h2 class="section-title">A Living, Breathing Intelligence Architecture</h2>
+                <p class="section-subtitle">
+                    Unlike traditional software that runs your business, Unikode OS becomes your business—learning, 
+                    adapting, and evolving every millisecond.
+                </p>
+            </div>
+            
+            <div class="architecture-visual">
+                <h3 style="text-align: center; margin-bottom: var(--space-xl); color: var(--text-primary);">
+                    The Self-Balancing Code-Policy Continuum
+                </h3>
+                
+                <div class="architecture-layers">
+                    <div class="architecture-layer">
+                        <div class="layer-header">
+                            <div class="layer-icon">📋</div>
+                            <div>
+                                <div class="layer-title">Policy as Code Layer</div>
+                                <div class="layer-description">Business rules that write themselves</div>
+                            </div>
+                            <div class="layer-percentage">65%</div>
+                        </div>
+                        <div class="layer-description">
+                            Your business logic expressed in structured YAML and JSON—not buried in code. 
+                            These policies self-modify based on performance, constantly optimizing without human intervention.
+                        </div>
+                        <div class="layer-components">
+                            <span class="component-chip">YAML Configurations</span>
+                            <span class="component-chip">Business Rules</span>
+                            <span class="component-chip">Compliance Policies</span>
+                            <span class="component-chip">Workflow Definitions</span>
+                            <span class="component-chip">Agent Behaviors</span>
+                        </div>
+                    </div>
+                    
+                    <div class="architecture-layer">
+                        <div class="layer-header">
+                            <div class="layer-icon">⚙️</div>
+                            <div>
+                                <div class="layer-title">Infrastructure as Code Layer</div>
+                                <div class="layer-description">Self-provisioning, self-healing infrastructure</div>
+                            </div>
+                            <div class="layer-percentage">20%</div>
+                        </div>
+                        <div class="layer-description">
+                            Infrastructure that manages itself. When the system needs more resources or different 
+                            configurations, it writes the code to make it happen—no DevOps team required.
+                        </div>
+                        <div class="layer-components">
+                            <span class="component-chip">Kubernetes Manifests</span>
+                            <span class="component-chip">Terraform Scripts</span>
+                            <span class="component-chip">CI/CD Pipelines</span>
+                            <span class="component-chip">Service Mesh</span>
+                        </div>
+                    </div>
+                    
+                    <div class="architecture-layer">
+                        <div class="layer-header">
+                            <div class="layer-icon">💻</div>
+                            <div>
+                                <div class="layer-title">Execution Code Layer</div>
+                                <div class="layer-description">High-performance runtime that never sleeps</div>
+                            </div>
+                            <div class="layer-percentage">15%</div>
+                        </div>
+                        <div class="layer-description">
+                            Optimized Python and PowerShell that executes at machine speed. This layer shrinks over 
+                            time as the system learns to express more logic through policies—the ultimate efficiency.
+                        </div>
+                        <div class="layer-components">
+                            <span class="component-chip">Python Runtime</span>
+                            <span class="component-chip">PowerShell Scripts</span>
+                            <span class="component-chip">API Handlers</span>
+                            <span class="component-chip">Data Processors</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: var(--space-2xl); padding: var(--space-lg); background: var(--primary-glow); border-radius: var(--radius-lg); text-align: center;">
+                    <p style="font-size: var(--text-lg); color: var(--primary); font-weight: 600; margin: 0;">
+                        🔄 This ratio evolves continuously. As the system learns, it shifts logic from code to policy,
+                        making your business more agile, more maintainable, and more intelligent every day.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Evolution Timeline -->
+            <div class="evolution-container">
+                <h3 style="text-align: center; margin-bottom: var(--space-xl); color: var(--text-primary);">
+                    The Journey from Static to Self-Evolving
+                </h3>
+                
+                <div class="evolution-timeline">
+                    <div class="evolution-line"></div>
+                    <div class="evolution-stages">
+                        <div class="evolution-stage">
+                            <div class="stage-icon">📝</div>
+                            <div class="stage-title">Day 1</div>
+                            <div class="stage-description">System learns your business</div>
+                        </div>
+                        <div class="evolution-stage">
+                            <div class="stage-icon">🔍</div>
+                            <div class="stage-title">Week 1</div>
+                            <div class="stage-description">Identifies optimization patterns</div>
+                        </div>
+                        <div class="evolution-stage">
+                            <div class="stage-icon">⚡</div>
+                            <div class="stage-title">Month 1</div>
+                            <div class="stage-description">Self-optimizes operations</div>
+                        </div>
+                        <div class="evolution-stage">
+                            <div class="stage-icon">🧠</div>
+                            <div class="stage-title">Quarter 1</div>
+                            <div class="stage-description">Predicts and prevents issues</div>
+                        </div>
+                        <div class="evolution-stage">
+                            <div class="stage-icon">🚀</div>
+                            <div class="stage-title">Year 1</div>
+                            <div class="stage-description">Fully autonomous operations</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Capabilities Section -->
+    <section class="section" id="capabilities">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">What It Does</span>
+                <h2 class="section-title">Capabilities That Redefine What's Possible</h2>
+                <p class="section-subtitle">
+                    This isn't about features. It's about fundamentally new capabilities that didn't exist before—
+                    capabilities that transform how business operates.
+                </p>
+            </div>
+            
+            <div class="capabilities-grid">
+                <div class="capability-card">
+                    <div class="capability-icon">🧬</div>
+                    <h3 class="capability-title">Self-Writing Policies</h3>
+                    <p class="capability-description">
+                        The system observes patterns in your business and automatically writes new policies 
+                        to handle them. It's like having a team of consultants who never sleep and implement 
+                        their own recommendations instantly.
+                    </p>
+                    <div class="capability-metrics">
+                        <div class="metric-item">
+                            <div class="metric-value">180+</div>
+                            <div class="metric-label">Auto-Generated Metrics</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">24/7</div>
+                            <div class="metric-label">Continuous Learning</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="capability-card">
+                    <div class="capability-icon">🎭</div>
+                    <h3 class="capability-title">Intelligent Agent Orchestra</h3>
+                    <p class="capability-description">
+                        Nine specialized AI agents work in perfect harmony—each an expert in their domain, 
+                        all coordinated by a chief orchestrator. They delegate, collaborate, and evolve together.
+                    </p>
+                    <div class="capability-metrics">
+                        <div class="metric-item">
+                            <div class="metric-value">9</div>
+                            <div class="metric-label">Specialized Agents</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">∞</div>
+                            <div class="metric-label">Task Capacity</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="capability-card">
+                    <div class="capability-icon">🔮</div>
+                    <h3 class="capability-title">Predictive Operations</h3>
+                    <p class="capability-description">
+                        Don't just respond to problems—prevent them. The system learns from every interaction 
+                        and predicts issues weeks before they occur, automatically taking corrective action.
+                    </p>
+                    <div class="capability-metrics">
+                        <div class="metric-item">
+                            <div class="metric-value">3 weeks</div>
+                            <div class="metric-label">Prediction Window</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">95%</div>
+                            <div class="metric-label">Prevention Rate</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="capability-card">
+                    <div class="capability-icon">🌐</div>
+                    <h3 class="capability-title">Universal Integration</h3>
+                    <p class="capability-description">
+                        Connect to any system, any database, any API—without writing integration code. 
+                        The system learns protocols and creates its own connectors on demand.
+                    </p>
+                    <div class="capability-metrics">
+                        <div class="metric-item">
+                            <div class="metric-value">21+</div>
+                            <div class="metric-label">Native Integrations</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">∞</div>
+                            <div class="metric-label">Learnable Protocols</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="capability-card">
+                    <div class="capability-icon">⏱️</div>
+                    <h3 class="capability-title">Time Compression</h3>
+                    <p class="capability-description">
+                        What used to take weeks now happens in hours. Testing that took 6 weeks? 
+                        Now 48 hours. Integration projects? Days instead of months.
+                    </p>
+                    <div class="capability-metrics">
+                        <div class="metric-item">
+                            <div class="metric-value">20x</div>
+                            <div class="metric-label">Faster Testing</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">10x</div>
+                            <div class="metric-label">Faster Deployment</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="capability-card">
+                    <div class="capability-icon">🛡️</div>
+                    <h3 class="capability-title">Self-Defending Security</h3>
+                    <p class="capability-description">
+                        Security that evolves faster than threats. The system writes its own security 
+                        policies, patches its own vulnerabilities, and learns from every attack attempt.
+                    </p>
+                    <div class="capability-metrics">
+                        <div class="metric-item">
+                            <div class="metric-value">100ms</div>
+                            <div class="metric-label">Response Time</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">Zero</div>
+                            <div class="metric-label">Human Intervention</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Value Proposition Section -->
+    <section class="section section-alt" id="value">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">The Impact</span>
+                <h2 class="section-title">This Changes Everything</h2>
+                <p class="section-subtitle">
+                    When your business can think, learn, and evolve on its own, 
+                    the old rules no longer apply.
+                </p>
+            </div>
+            
+            <div class="value-props">
+                <div class="value-prop">
+                    <div class="value-icon">💡</div>
+                    <div class="value-title">From Reactive to Predictive</div>
+                    <div class="value-description">
+                        Stop firefighting. Start preventing fires before they spark.
+                    </div>
+                </div>
+                
+                <div class="value-prop">
+                    <div class="value-icon">🏃</div>
+                    <div class="value-title">From Months to Minutes</div>
+                    <div class="value-description">
+                        Deploy changes instantly. Test in real-time. Evolve continuously.
+                    </div>
+                </div>
+                
+                <div class="value-prop">
+                    <div class="value-icon">📈</div>
+                    <div class="value-title">From Linear to Exponential</div>
+                    <div class="value-description">
+                        Growth that accelerates. Improvements that compound. Success that scales.
+                    </div>
+                </div>
+                
+                <div class="value-prop">
+                    <div class="value-icon">🎯</div>
+                    <div class="value-title">From Guessing to Knowing</div>
+                    <div class="value-description">
+                        Data-driven decisions made at the speed of thought, not committees.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Comparison Section -->
+    <section class="section" id="comparison">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">The Difference</span>
+                <h2 class="section-title">Why This Isn't Just Another AI Tool</h2>
+                <p class="section-subtitle">
+                    Understanding the difference between Unikode OS and traditional solutions 
+                    is like understanding the difference between a calculator and a computer.
+                </p>
+            </div>
+            
+            <div class="comparison-table">
+                <div class="comparison-header">
+                    <div>Capability</div>
+                    <div class="traditional-header">Traditional AI/Automation</div>
+                    <div class="unikode-header">Unikode OS</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Intelligence Model</div>
+                    <div>Static prompts & scripts</div>
+                    <div>Self-evolving policies</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Adaptation</div>
+                    <div>Manual updates required</div>
+                    <div>Continuous self-improvement</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Integration Approach</div>
+                    <div>Point-to-point connections</div>
+                    <div>Universal adaptive mesh</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Decision Making</div>
+                    <div>Rule-based or single AI</div>
+                    <div>Multi-agent consensus</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Performance Over Time</div>
+                    <div>Degrades, needs maintenance</div>
+                    <div>Improves automatically</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Deployment Model</div>
+                    <div>Big bang or phased</div>
+                    <div>Organic evolution</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">ROI Timeline</div>
+                    <div>12-24 months</div>
+                    <div>Immediate & compounding</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Maintenance Required</div>
+                    <div class="comparison-no">✗</div>
+                    <div class="comparison-yes">✓ Self-maintaining</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Learns from Experience</div>
+                    <div class="comparison-no">✗</div>
+                    <div class="comparison-yes">✓ Every interaction</div>
+                </div>
+                
+                <div class="comparison-row">
+                    <div class="comparison-feature">Creates New Capabilities</div>
+                    <div class="comparison-no">✗</div>
+                    <div class="comparison-yes">✓ Continuously</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ROI Section -->
+    <section class="section section-alt" id="roi">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">The Returns</span>
+                <h2 class="section-title">ROI That Compounds, Not Just Calculates</h2>
+                <p class="section-subtitle">
+                    Traditional software has linear returns. Unikode OS has exponential returns 
+                    because it gets better every day.
+                </p>
+            </div>
+            
+            <div class="roi-calculator">
+                <div class="roi-content">
+                    <h3 class="roi-title">Your First Year with Unikode OS</h3>
+                    
+                    <div class="roi-metrics">
+                        <div class="roi-metric">
+                            <div class="roi-value">70%</div>
+                            <div class="roi-label">Reduction in Operational Costs</div>
+                        </div>
+                        <div class="roi-metric">
+                            <div class="roi-value">20x</div>
+                            <div class="roi-label">Faster Time to Market</div>
+                        </div>
+                        <div class="roi-metric">
+                            <div class="roi-value">95%</div>
+                            <div class="roi-label">Issue Prevention Rate</div>
+                        </div>
+                        <div class="roi-metric">
+                            <div class="roi-value">∞</div>
+                            <div class="roi-label">Scaling Without Hiring</div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: var(--space-2xl);">
+                        <p style="font-size: var(--text-xl); margin-bottom: var(--space-lg);">
+                            <strong>Conservative estimate for a mid-size enterprise:</strong>
+                        </p>
+                        <p style="font-size: var(--text-3xl); font-weight: 700;">
+                            $2.4M - $24M Annual Value Creation
+                        </p>
+                        <p style="font-size: var(--text-md); opacity: 0.9; margin-top: var(--space-md);">
+                            And that's just year one. The value compounds as the system learns.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: var(--space-2xl); text-align: center;">
+                <h3 style="font-size: var(--text-2xl); margin-bottom: var(--space-lg); color: var(--text-primary);">
+                    The Hidden Multiplier: Opportunity Cost
+                </h3>
+                <p style="font-size: var(--text-lg); color: var(--text-secondary); max-width: 800px; margin: 0 auto;">
+                    While your competitors struggle with traditional tools, you're operating in a different dimension. 
+                    The real ROI isn't just what you save—it's the opportunities you capture that others can't even see.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-background"></div>
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Evolve Beyond Traditional Business?</h2>
+            <p class="cta-description">
+                Give us 72 hours to analyze your business. We'll show you exactly how Unikode OS 
+                will transform your operations and calculate your specific ROI.
+            </p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary" style="background: white; color: var(--primary);">
+                    Schedule Your Assessment
+                    <span>→</span>
+                </a>
+            </div>
+            <p style="margin-top: var(--space-lg); font-size: var(--text-sm); opacity: 0.8;">
+                No disruption to current operations • No massive upfront investment • Results in weeks, not years
+            </p>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2025 Unikode Operating System. Enterprise-Grade Intelligence, Delivered.</p>
+            <p style="margin-top: var(--space-sm);">
+                Protected by advanced IP portfolio • Audit Grade: A- (87/100) • Production Ready
+            </p>
+        </div>
+    </footer>
+    
+    <script>
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Navbar Background on Scroll
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = 'var(--shadow-md)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all capability cards and value props
+        document.querySelectorAll('.capability-card, .value-prop, .architecture-layer').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+        
+        // Counter Animation for ROI Metrics
+        function animateCounter(element, target, suffix = '') {
+            const duration = 2000;
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current) + suffix;
+            }, 16);
+        }
+        
+        // Trigger counter animation when ROI section is visible
+        const roiObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.dataset.animated) {
+                    entry.target.dataset.animated = 'true';
+                    
+                    // Animate each ROI value
+                    const values = entry.target.querySelectorAll('.roi-value');
+                    values[0] && animateCounter(values[0], 70, '%');
+                    values[1] && animateCounter(values[1], 20, 'x');
+                    values[2] && animateCounter(values[2], 95, '%');
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        const roiSection = document.querySelector('.roi-metrics');
+        if (roiSection) {
+            roiObserver.observe(roiSection);
+        }
+        
+        // Mobile Menu Toggle (for future enhancement)
+        function toggleMobileMenu() {
+            const menu = document.querySelector('.navbar-menu');
+            if (menu) {
+                menu.classList.toggle('active');
+            }
+        }
+        
+        // Performance optimization: Debounce scroll events
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        
+        // Apply debouncing to scroll handler
+        const debouncedScroll = debounce(() => {
+            // Any scroll-based animations or checks go here
+        }, 10);
+        
+        window.addEventListener('scroll', debouncedScroll, { passive: true });
+    </script>
+</body>
+</html>
